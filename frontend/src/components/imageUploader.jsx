@@ -57,13 +57,19 @@ function ImageUploader() {
 
     return (
         <div className="image-uploader">
-            {pokemon && <h1 className='guessed-pokemon'>The guessed pokemon is: {pokemon}</h1>}
-            {type && <h1 className='guessed-type'>The type of this pokemon is: {type}</h1>}
-            <form>
+            <form className='poke-form'>
+            <div className='left-side'>
                 {image && <img src={URL.createObjectURL(image)} alt='pokemon' />}
                 <input className='image-input' type="file" accept='image/*' onChange={handleImageChange} />
+            </div>
+            <div className='right-side'>
+                {pokemon && <h1 className='guessed-pokemon'>The guessed pokemon is: {pokemon}</h1>}
+                {type && <h1 className='guessed-type'>The type of this pokemon is: {type}</h1>}
+                <div className='pok-buttons'>
                 <button className='type-btn' type='submit' onClick={handleGuessTypeSubmit}>Guess Type</button>
                 <button className='pokemon-btn' type='submit' onClick={handleGuessPokemonSubmit}>Guess Pokemon</button>
+                </div>
+            </div>
             </form>
         </div>
     );
